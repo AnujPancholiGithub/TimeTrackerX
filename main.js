@@ -7,9 +7,19 @@ function createMainWindow() {
     title: "Electron",
     width: 1000,
     height: 600,
+
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: true,
+      preload: path.join(__dirname, "./preload.js"),
+    },
   });
 
-  const startUrl = new URL("file://" + path.join(__dirname, "index.html")).href;
+  mainWindow.webContents.openDevTools();
+
+  const startUrl = new URL(
+    "file://" + path.join(__dirname, "./myapp/build/index.html")
+  ).href;
 
   mainWindow.loadURL(startUrl);
 }

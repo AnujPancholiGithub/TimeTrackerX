@@ -4,7 +4,8 @@
   "description": "This is a time tracker app for desktop screen usagses",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "start:watch": "npx electronmon --trace-warnngs ."
   },
   "repository": {
     "type": "git",
