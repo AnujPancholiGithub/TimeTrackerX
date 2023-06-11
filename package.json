@@ -1,0 +1,23 @@
+{
+  "name": "timetrackerxo",
+  "version": "0.0.1",
+  "description": "This is a time tracker app for desktop screen usagses",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnujPancholiGithub/TimeTrackerX.git"
+  },
+  "keywords": [
+    "electron",
+    "reactjs"
+  ],
+  "author": "Anuj Pancholi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnujPancholiGithub/TimeTrackerX/issues"
+  },
+  "homepage": "https://github.com/AnujPancholiGithub/TimeTrackerX#readme"
+}
