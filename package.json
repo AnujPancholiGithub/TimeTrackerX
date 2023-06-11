@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/AnujPancholiGithub/TimeTrackerX#readme",
   "dependencies": {
-    "electron": "^25.1.0"
+    "electron": "^25.1.0",
+    "electron-drag": "^2.0.0"
   }
 }

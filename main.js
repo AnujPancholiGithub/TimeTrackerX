@@ -1,27 +1,45 @@
 const { app, BrowserWindow } = require("electron");
 
 const path = require("path");
-
-function createMainWindow() {
+const { makeDraggable } = require("electron-drag");
+function createWindow() {
   const mainWindow = new BrowserWindow({
-    title: "Electron",
-    width: 1000,
-    height: 600,
-
+    width: 300,
+    height: 200,
+    frame: true,
+    titleBarStyle: "hidden",
+    titleBarOverlay: true,
+    transparent: true,
+    alwaysOnTop: true,
     webPreferences: {
-      contextIsolation: true,
       nodeIntegration: true,
-      preload: path.join(__dirname, "./preload.js"),
+      contextIsolation: true,
+      enableRemoteModule: true,
+      preload: path.join(__dirname, "preload.js"),
     },
   });
-
-  mainWindow.webContents.openDevTools();
 
   const startUrl = new URL(
     "file://" + path.join(__dirname, "./myapp/build/index.html")
   ).href;
+  mainWindow.webContents.openDevTools();
 
   mainWindow.loadURL(startUrl);
+  mainWindow.on("closed", () => {
+    app.quit();
+  });
 }
 
-app.whenReady().then(createMainWindow);
+app.whenReady().then(createWindow);
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
